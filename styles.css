@@ -1,0 +1,69 @@
+/* styles.css */
+#bouquetContainer {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #f8d7da; /* Soft pastel pink */
+    position: relative;
+}
+
+#roseBouquet {
+    width: 30%; /* Adjust size as needed */
+    opacity: 0;
+    transform: scale(0);
+    transform-origin: center;
+    transition: transform 3s ease, opacity 3s ease;
+}
+
+#speechBubble {
+    position: absolute;
+    background-color: white;
+    border-radius: 10px;
+    padding: 0.5em;
+    border: 2px solid #333;
+    top: 20%; /* You might adjust this value based on your design */
+    left: calc(50% + 100px); /* Adjust based on the image width and desired position */
+    max-width: 15%; /* Responsive width */
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    opacity: 0;
+    transform: scale(0);
+    transition: transform 3s ease, opacity 3s ease;
+    transform-origin: bottom left;
+}
+
+/* Triangle part of the speech bubble */
+#speechBubble:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20%; /* Position of the arrow relative to the bubble size */
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-top-color: white;
+    border-bottom: 0;
+    border-right: 0;
+    margin-left: -5px;
+    margin-bottom: -10px;
+}
+
+@media (max-width: 768px) { /* Adjust for smaller screens */
+    #roseBouquet {
+        width: 80%; /* Larger relative width on smaller screens */
+    }
+
+    #speechBubble {
+        left: calc(50% + 100px); /* Smaller offset on smaller screens */
+        padding: 0.3em;
+        max-width: 40%; /* Larger relative width on smaller screens to ensure readability */
+    }
+
+    #speechBubble:after {
+        left: 10%; /* Adjust the position of the arrow */
+    }
+}
